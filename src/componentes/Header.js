@@ -21,14 +21,14 @@ function Header() {
                         <a class="nav-link active text-header" aria-current="page" href="/Perfil">Mí Perfil</a>
                         </li>
                         <li class="nav-item dropdown text-header" >
-                        <a class="nav-link dropdown-toggle text-header" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-header" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Herramientas
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Estado del Clima</a></li>
-                            <li><a class="dropdown-item" href="#">Guías de Cultivo</a></li>
+                            <li><a class="dropdown-item" href="/">Estado del Clima</a></li>
+                            <li><a class="dropdown-item" href="/">Guías de Cultivo</a></li>
                             <li><hr class="dropdown-divider"/></li>
-                            <li><a class="dropdown-item" href="#">Ayuda</a></li>
+                            <li><a class="dropdown-item" href="/">Ayuda</a></li>
                         </ul>
                         </li>
                                             </ul>
