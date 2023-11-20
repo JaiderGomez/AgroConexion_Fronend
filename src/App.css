@@ -1,0 +1,148 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 50vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bgcolor {
+  background: #1CACC9;
+  margin-bottom: 12px;
+
+}
+.bgcolor-footer {
+  background: #ECECEC;
+
+}
+.bgcolorbtn {
+  background: #1CACC9;
+  font-family: Poppins !important;
+  font-size: 20px !important;
+  width: 140px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  
+
+}
+.bgcolorbtn:hover {
+  background: #ECECEC;
+  color: #1CACC9;
+  }
+
+.letra{
+  font-family: Brush Script MT;
+  font-size: 50px;
+  color: #49FF00;
+  font-style: solid;
+  margin-right: 15px;
+}
+.letra:hover{
+  color: white;
+}
+
+a {
+text-decoration: none;
+}
+
+.text-header{
+  font-family: DM Sans;
+ 
+  font-size: 20px;
+}
+.text-header:hover{
+  color: white !important;
+}
+
+.title-login{
+  color: #1CACC9;
+  font-family: Poppins;
+}
+
+.Poppins{
+  font-family: Poppins;
+}
+.DM-Sans{
+  font-family: DM Sans;
+}
+.sm{
+  max-width: 500px !important;
+  border: solid #1CACC9 1px;
+  padding: 2px;
+  padding-bottom: 4px;
+  border-radius: 15px;
+  box-shadow: 16px 8px 8px #ECECEC;
+}
+
+.inp-text{
+  text-align: left;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+
+.btn-mar{
+  margin-right: 1rem !important;
+}
+
+.crear-publicacion{
+  text-align: left !important;
+  font-family: Poppins;
+  font-size: 1.5rem;
+  border: solid #1CACC9 1px;
+  padding: 0.5rem;
+  padding-bottom: 4px;
+  border-radius: 15px;
+  box-shadow: 16px 8px 8px #ECECEC;
+}
+
+
+.inputUbicacion{
+  margin-bottom: 1px;
+}
+
+
+.text-perfil{
+  text-align: justify;
+}
+
+.text-perfil2{
+  color: #1CACC9;
+  
+}
+
+.titulo{
+  text-align: center;
+  margin-bottom: 1rem;
+}
