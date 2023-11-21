@@ -5,6 +5,8 @@ function Footer(){
                 <div class="col mb-3">
                
                 <p class="text-muted">Agro Conexión © 2023</p>
+                <p class="text-muted">Análisis y Desarrollo de Software. (2675784)</p>
+                <p class="text-muted">By Jaider Gomez</p>
                 </div>
 
                 <div class="col mb-3">
