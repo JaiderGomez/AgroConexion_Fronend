@@ -4,7 +4,7 @@ function Footer(){
             <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top ">
                 <div class="col mb-3">
                
-                <p class="text-muted">Agro Conexión © 2023</p>
+                <p class="text-muted">Agro Conexión © 2024</p>
                 <p class="text-muted">Análisis y Desarrollo de Software. (2675784)</p>
                 <p class="text-muted">By Jaider Gomez</p>
                 </div>

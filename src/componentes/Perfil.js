@@ -7,7 +7,7 @@ function Perfil() {
             <div class="d-flex flex-row bd-highlight mb-3">
                 <div class="p-3 bd-highlight">
 
-                    <img src="https://i.postimg.cc/T3rhTfBz/blank-profile-picture-973460-960-720.webp" class="rounded float-start" alt="Foto Perfil" width="200rem" />
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="rounded float-start" alt="Foto Perfil" width="200rem" />
                 </div>
 
                 <div class="p-3 bd-highlight">
