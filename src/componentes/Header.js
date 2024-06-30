@@ -1,5 +1,26 @@
+import React, { Fragment } from 'react'
+import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
+import { useAlert } from 'react-alert'
+import { logout} from "../actions/userActions"
+
+
 function Header() {
+   
+    const alert= useAlert();
+    const dispatch= useDispatch();
+
+    const {user, loading } = useSelector(state => state.auth)
+
+    const logoutHandler = () =>{
+        dispatch(logout());
+        alert.success("LogOut exitoso")
+    }
+
     return(
+
+
+        <Fragment>
 
         <div className="header bgcolor">
             <nav class="navbar navbar-expand-lg ">
@@ -20,6 +41,7 @@ function Header() {
                         <li class="nav-item">
                         <a class="nav-link active text-header" aria-current="page" href="/Perfil">Mí Perfil</a>
                         </li>
+                        
                         <li class="nav-item dropdown text-header" >
                         <a class="nav-link dropdown-toggle text-header" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Herramientas
@@ -31,16 +53,17 @@ function Header() {
                             <li><a class="dropdown-item" href="/">Ayuda</a></li>
                         </ul>
                         </li>
-                                            </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
+                        </ul>
+
+                        {user ? (<Link to="/" id="login_btn" onClick={logoutHandler}><button type="button" class="btn btn-warning">Cerrar sesión</button></Link>) : !loading && <Link to="/" id="login_btn"><button type="button" class="btn btn-warning">Iniciar sesión</button></Link>}
+                       
                     </div>
                 </div>
                 </nav>
 
         </div>
+
+        </Fragment>
 
     );
 }
