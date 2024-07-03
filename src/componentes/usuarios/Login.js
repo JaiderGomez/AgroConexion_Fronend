@@ -1,8 +1,9 @@
 import React, {Fragment, useEffect, useState } from 'react'
 //import MetaData from '../layout/MetaData'
 import { Link, useNavigate } from "react-router-dom"
-import { login, clearErrors } from "../actions/userActions"
+import { login, clearErrors } from "../../actions/userActions"
 import { useDispatch, useSelector } from 'react-redux'
+import { useAlert } from 'react-alert'
 
 
 
@@ -13,20 +14,22 @@ export const Login = () => {
     const [password, setPassword] = useState("")
     const dispatch = useDispatch();
     const { isAuthenticated, error, loading } = useSelector(state => state.auth)
+    const alert= useAlert();
 
     useEffect(() => {
         if (isAuthenticated) {
             navigate("/home")
         }
         if (error) {
+            alert.error("Acceso denegado: verificar email y/o contraseña")
             dispatch(clearErrors)
         }
-        // eslint-disable-next-line
+        
     }, [dispatch, isAuthenticated, error])
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(login(email, password))
+        dispatch(login(email, password));
     }
 
     return(

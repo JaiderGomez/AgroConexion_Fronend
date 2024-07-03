@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate} from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert'
 import { logout} from "../actions/userActions"
@@ -11,10 +11,11 @@ function Header() {
     const dispatch= useDispatch();
 
     const {user, loading } = useSelector(state => state.auth)
+    const navigate = useNavigate();
 
     const logoutHandler = () =>{
         dispatch(logout());
-        alert.success("LogOut exitoso")
+        alert.success("LogOut exitoso");
     }
 
     return(
@@ -22,7 +23,7 @@ function Header() {
 
         <Fragment>
 
-        <div className="header bgcolor">
+        <div className="header bgcolor mb-5">
             <nav class="navbar navbar-expand-lg ">
                 <div class="container-fluid">
                     <a class="letra" href="/">Agro Conexión</a>
@@ -36,26 +37,26 @@ function Header() {
                         <a class="nav-link active text-header" aria-current="page" href="/home">Inicio</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link active text-header" aria-current="page" href="/CrearPublicacion">Crear Publicacion</a>
+                        <a class="nav-link active text-header" aria-current="page" href="/crear-publicacion">Crear Publicacion</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link active text-header" aria-current="page" href="/Perfil">Mí Perfil</a>
+                        <a class="nav-link active text-header" aria-current="page" href=""></a>
                         </li>
                         
                         <li class="nav-item dropdown text-header" >
                         <a class="nav-link dropdown-toggle text-header" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Herramientas
+                            Mí Perfil
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/">Estado del Clima</a></li>
-                            <li><a class="dropdown-item" href="/">Guías de Cultivo</a></li>
+                            <li><a class="dropdown-item" href="/perfil">Ver mi perfil</a></li>
+                            <li><a class="dropdown-item" href="/editar-perfil">Editar mi perfil</a></li>
                             <li><hr class="dropdown-divider"/></li>
                             <li><a class="dropdown-item" href="/">Ayuda</a></li>
                         </ul>
                         </li>
                         </ul>
 
-                        {user ? (<Link to="/" id="login_btn" onClick={logoutHandler}><button type="button" class="btn btn-warning">Cerrar sesión</button></Link>) : !loading && <Link to="/" id="login_btn"><button type="button" class="btn btn-warning">Iniciar sesión</button></Link>}
+                        {user ? (<Link id="login_btn" onClick={logoutHandler} to="/"><button type="button" class="btn btn-warning">Cerrar sesión</button></Link>) : !loading && <Link to="/" id="login_btn"><button type="button" class="btn btn-warning">Iniciar sesión</button></Link>}
                        
                     </div>
                 </div>

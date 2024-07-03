@@ -13,15 +13,14 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 //import { productsReducer, productDetailsReducer, newProductReducer, productReducer, newReviewReducer, productReviewsReducer, reviewReducer } from './reducer/productReducer';
 
 //Import para los reducer de usuarios y el proceso de autenticación
-import { authReducer, userReducer, forgotPasswordReducer, allUsersReducer, userDetailsReducer } from './reducer/userReducer'
+import { authReducer, userReducer} from './reducer/userReducer'
+import { newPublicacionReducer } from './reducer/publicacionesReducer';
 
 //combino los reducer
 const reducer = combineReducers({
     auth: authReducer,
     user: userReducer,
-    forgotPassword: forgotPasswordReducer,
-    allUsers: allUsersReducer,
-    userDetails: userDetailsReducer,
+    newPost : newPublicacionReducer,
 })
 
 const middleware = [thunk]

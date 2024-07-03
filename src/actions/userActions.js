@@ -55,13 +55,13 @@ export const login = (email, password) => async (dispatch) => {
 
         dispatch({
             type:LOGIN_SUCCESS,
-            payload: data.user //información adicional sobre lo sucedido en la acción
+            payload: data.user //información proveniente del backend
         })
     }
     catch (error) { 
         dispatch({
             type:LOGIN_FAIL,
-            payload: error.response.data.message
+            payload: error
         })
     }
 }
@@ -110,16 +110,16 @@ export const loadUser=()=> async(dispatch) =>{
 
 
 //ACTUALIZAR USUARIO
-export const updateProfile = (userData) => async (dispatch) => {
+export const updateProfile = (userData, id) => async (dispatch) => {
     try {
         dispatch({ type: UPDATE_PROFILE_REQUEST})
 
         const config={
             headers: {
-                'Content-Type': 'multipart/form-data'
+                'Content-Type': 'application/json'
             }
         }
-        const {data} = await axios.put('/api/yo/updateProfile', userData, config)
+        const {data} = await axios.patch(`/api/usuario/${id}`, userData, config)
 
         dispatch({
             type: UPDATE_PROFILE_SUCCESS,
@@ -129,7 +129,7 @@ export const updateProfile = (userData) => async (dispatch) => {
     catch (error) { 
         dispatch({
             type: UPDATE_PROFILE_FAIL,
-            payload: error.response.data.message
+            payload: error
         })
     }
 }

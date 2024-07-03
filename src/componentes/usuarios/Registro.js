@@ -1,7 +1,7 @@
 import React , {Fragment, useState, useEffect} from 'react'
 import { useAlert } from 'react-alert';
 import { useDispatch, useSelector } from 'react-redux';
-import {register, clearErrors} from "../actions/userActions"
+import {register, clearErrors} from "../../actions/userActions"
 import {useNavigate} from "react-router-dom"
 
 
