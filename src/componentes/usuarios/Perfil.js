@@ -27,7 +27,7 @@ export const Perfil = () =>{
                                 <p><span className="text-perfil2">Mi Dirección:</span> {user.direccion}</p>
                             </div>
                             <div class="p-3 bd-highlight">
-                                <p><span className="text-perfil2">Fecha de Nacimiento:</span> {user.fecha_de_nacimiento}</p>
+                                <p><span className="text-perfil2">Fecha de Nacimiento:</span> {String(user.fecha_de_nacimiento).substring(0, 10)}</p>
                             </div>
                             <div class="p-3 bd-highlight">
                                 <p><span className="text-perfil2">Numero de Celular:</span> {user.telefono}</p>
@@ -37,6 +37,8 @@ export const Perfil = () =>{
                             </div>
                                                        
                         </div>
+
+                        <a class="btn btn-primary" href="/editar-perfil" role="button">Editar perfil</a>
                        
                     </div>
                 </Fragment>

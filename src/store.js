@@ -14,13 +14,14 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 
 //Import para los reducer de usuarios y el proceso de autenticación
 import { authReducer, userReducer} from './reducer/userReducer'
-import { newPublicacionReducer } from './reducer/publicacionesReducer';
+import { newPublicacionReducer, getPublicacionesReducer } from './reducer/publicacionesReducer';
 
 //combino los reducer
 const reducer = combineReducers({
     auth: authReducer,
     user: userReducer,
     newPost : newPublicacionReducer,
+    publicaciones: getPublicacionesReducer 
 })
 
 const middleware = [thunk]

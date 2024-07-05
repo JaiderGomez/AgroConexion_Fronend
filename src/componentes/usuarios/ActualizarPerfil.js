@@ -46,9 +46,9 @@ export const ActualizarPerfil = () => {
         }
         if (isUpdated) {
             alert.success("Perfil actualizado correctamente");
+            navigate("/perfil")
             dispatch(loadUser());
-
-            navigate("/perfil");
+            
 
             dispatch({
                 type: UPDATE_PROFILE_RESET
@@ -77,114 +77,101 @@ export const ActualizarPerfil = () => {
 
     return (
         <Fragment>
-                    {/*<!-- Button para abrir modal -->*/}
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Editar Perfil
-                    </button>
+            {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
 
-                    {/*<!-- Modal -->*/}
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Mi Perfil</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <Fragment>
+                    <div className="container">
+
+                        <form class="row g-3" onSubmit={submitHandler}>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nombres</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="nombres" 
+                                name='nombres' 
+                                value={nombres} 
+                                onChange={(e) => setNombres(e.target.value)} 
+                            />
                         </div>
-                        <div class="modal-body">
-                            <form onSubmit={submitHandler}>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Apellidos</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="apellidos" 
+                                name='apellidos' 
+                                value={apellidos} 
+                                onChange={(e) => setApellidos(e.target.value)} 
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Departamento</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="departamento" 
+                                name='departamento' 
+                                value={departamento} 
+                                onChange={(e) => setDepartamento(e.target.value)} 
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Ciudad</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="ciudad" 
+                                name='ciudad' 
+                                value={ciudad} 
+                                onChange={(e) => setCiudad(e.target.value)} 
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Dirección</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="direccion" 
+                                name='direccion' 
+                                value={direccion} 
+                                onChange={(e) => setDireccion(e.target.value)} 
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">N° Celular</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="telefono" 
+                                name='telefono' 
+                                value={telefono} 
+                                onChange={(e) => setTelefono(e.target.value)} 
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Fecha de Nacimiento</label>
+                            <input 
+                                type="date" 
+                                class="form-control" 
+                                id="fecha_de_nacimiento" 
+                                name='fecha_de_nacimiento' 
+                                value={fecha_de_nacimiento} 
+                                onChange={(e) => setFecha_de_nacimiento(e.target.value)} 
+                            />
+                        </div>
 
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Nombres</label>
-                                    <input 
-                                        type="text" 
-                                        class="form-control" 
-                                        id="nombres" 
-                                        name='nombres' 
-                                        value={nombres} 
-                                        onChange={(e) => setNombres(e.target.value)} 
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Apellidos</label>
-                                    <input 
-                                        type="text" 
-                                        class="form-control" 
-                                        id="apellidos" 
-                                        name='apellidos' 
-                                        value={apellidos} 
-                                        onChange={(e) => setApellidos(e.target.value)} 
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Departamento</label>
-                                    <input 
-                                        type="text" 
-                                        class="form-control" 
-                                        id="departamento" 
-                                        name='departamento' 
-                                        value={departamento} 
-                                        onChange={(e) => setDepartamento(e.target.value)} 
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Ciudad</label>
-                                    <input 
-                                        type="text" 
-                                        class="form-control" 
-                                        id="ciudad" 
-                                        name='ciudad' 
-                                        value={ciudad} 
-                                        onChange={(e) => setCiudad(e.target.value)} 
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Dirección</label>
-                                    <input 
-                                        type="text" 
-                                        class="form-control" 
-                                        id="direccion" 
-                                        name='direccion' 
-                                        value={direccion} 
-                                        onChange={(e) => setDireccion(e.target.value)} 
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">N° Celular</label>
-                                    <input 
-                                        type="text" 
-                                        class="form-control" 
-                                        id="telefono" 
-                                        name='telefono' 
-                                        value={telefono} 
-                                        onChange={(e) => setTelefono(e.target.value)} 
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Fecha de Nacimiento</label>
-                                    <input 
-                                        type="date" 
-                                        class="form-control" 
-                                        id="fecha_de_nacimiento" 
-                                        name='fecha_de_nacimiento' 
-                                        value={fecha_de_nacimiento} 
-                                        onChange={(e) => setFecha_de_nacimiento(e.target.value)} 
-                                    />
-                                </div>
-
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                                </div>
-
-                                </form>                     
-                                                                    
-
-                             </div>
                         
-                        </div>
+                       
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
 
+
+                        </form>                     
                     </div>
-                    </div>
+                </Fragment>
+            )}
+            
         </Fragment>
     )
 }

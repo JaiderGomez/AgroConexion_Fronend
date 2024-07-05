@@ -1,5 +1,5 @@
 //CONSTANTES
-import {NEW_PUBLICACION_REQUEST, NEW_PUBLICACION_SUCCESS, NEW_PUBLICACION_FAIL, CLEAR_ERRORS} from '../constants/publicacionesConstants'
+import {NEW_PUBLICACION_REQUEST, NEW_PUBLICACION_SUCCESS, NEW_PUBLICACION_FAIL, CLEAR_ERRORS, GET_PUBLICACIONES_REQUEST, GET_PUBLICACIONES_FAIL, GET_PUBLICACIONES_SUCCESS} from '../constants/publicacionesConstants'
 
 import axios from 'axios'
 
@@ -24,6 +24,28 @@ export const newPublicacion = (newPost) => async (dispatch)=>{
     }catch(error){
         dispatch({
             type: NEW_PUBLICACION_FAIL,
+            payload: error
+        })
+    }
+}
+
+
+
+//Consultar las  publicaciones
+export const getPublicaciones = () => async (dispatch)=>{
+    try {
+        dispatch({type: GET_PUBLICACIONES_REQUEST})
+
+
+        const {data} = await axios.get('/api/publicaciones')
+
+        dispatch({
+            type: GET_PUBLICACIONES_SUCCESS,
+            payload: data
+        })
+    }catch(error){
+        dispatch({
+            type: GET_PUBLICACIONES_FAIL,
             payload: error
         })
     }

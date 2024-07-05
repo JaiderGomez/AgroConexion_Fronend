@@ -19,7 +19,7 @@ export const CrearPublicacion = () => {
         departamento: "",
         precio_por_hectarea: 0,
         detalles: "",
-        autor:user._id,
+        autor : user,
         fecha_de_recolecta: "",
         archivos_adjuntos: "",
     })
@@ -30,20 +30,20 @@ export const CrearPublicacion = () => {
 
     const {nombre_del_producto, ciudad, cantidad, direccion, departamento, precio_por_hectarea, detalles, autor, fecha_de_recolecta, archivos_adjuntos} = post;
     const dispatch= useDispatch();
-    const {success, loading, error, message} = useSelector(state => state.newPost)  //Variables de estado
+    const {success, loading, error} = useSelector(state => state.newPost)  //Variables de estado
 
     
 
     useEffect( () => {
         if(success){
-            alert.success(message)
+            alert.success("Publicacion creado con éxito")
             navigate('/home')
         }
         if(error){
             alert.error(error)
             dispatch(clearErrors)
         }
-    }, [dispatch, success, message, error, alert, navigate])
+    }, [dispatch, success, error, alert, navigate])
 
 
     const submitHandler = (e) =>{
@@ -76,7 +76,7 @@ export const CrearPublicacion = () => {
                             />
                         </div>
                         <div class="col-md-6">
-                            <label for="inputCantidad" class="form-label">Cantidad:</label>
+                            <label for="inputCantidad" class="form-label">Cantidad (Hectáreas):</label>
                             <input 
                                 type="number" 
                                 min={1} 
@@ -98,7 +98,7 @@ export const CrearPublicacion = () => {
                                 onChange={onChange}
                             />
                         </div>
-                        <label for="inputUbicacion" class="form-label inputUbicacion">Ubicacion de la Cosecha:</label>
+                        <label for="inputUbicacion" class="form-label inputUbicacion">Ubicación de la Cosecha:</label>
                         <div class="col-4">
 
                             <input 
@@ -140,7 +140,7 @@ export const CrearPublicacion = () => {
                                 />
                             </div>
 
-                        <label class="form-label inputUbicacion">Ingrese url de Foto del cultivo: Subir img aqui https://postimages.org/</label>
+                        <label class="form-label inputUbicacion">Ingrese url de Foto del cultivo: Subir img aquí https://postimages.org/</label>
 
                         <div class="col-md-12">
 
@@ -156,7 +156,7 @@ export const CrearPublicacion = () => {
                 
 
                         <div class="col-md-6">
-                            <label for="inputprecio" class="form-label">Precio por Hectarea:</label>
+                            <label for="inputprecio" class="form-label">Precio por Hectárea:</label>
                             <input 
                                 type="number" 
                                 min={1} 

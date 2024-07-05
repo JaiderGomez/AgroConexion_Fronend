@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 
-import { BrowserRouter as Router, Route, Routes, redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 //Importo componentes
@@ -16,9 +16,8 @@ import ActualizarPerfil from './componentes/usuarios/ActualizarPerfil';
 //Fin componentes
 
 import store from './store'
-//import ProtectedRoute from './ProtectedRoute';
 
-import { loadUser, login } from './actions/userActions';
+import { loadUser } from './actions/userActions';
 
 function App() {
 
@@ -26,7 +25,7 @@ function App() {
     store.dispatch(loadUser()) //Envió la acción loadUser; que me permite identificar al usuario
   }, [])
 
-  const {user, isAuthenticated, loading} = useSelector(state => state.auth) //useSelector; 
+  const {isAuthenticated} = useSelector(state => state.auth) //useSelector; 
 
   return (
     
@@ -40,12 +39,7 @@ function App() {
           <Route path='/editar-perfil' Component={ isAuthenticated ? ActualizarPerfil : Login} />
           <Route path='/perfil' Component={ isAuthenticated ? Perfil : Login} />
           <Route path='/home' Component={ isAuthenticated ? Menu : Login} />
-          <Route path='/crear-publicacion' Component={ isAuthenticated ? CrearPublicacion : Login} />
-
-          {/*Rutas protegidas
-          <Route path="/lista-de-usuarios"
-              element={<ProtectedRoute isAdmin={true}><Dashboard /></ProtectedRoute>} />*/}
-         
+          <Route path='/crear-publicacion' Component={ isAuthenticated ? CrearPublicacion : Login} />         
         </Routes>
         <Footer />
 
