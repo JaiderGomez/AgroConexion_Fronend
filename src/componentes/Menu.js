@@ -28,7 +28,7 @@ export const Menu = () => {
                 <Fragment>
                 
                 <div class="container">
-                    <h1>Publicaciones</h1>
+                    <h1 className='display-1'>Publicaciones</h1>
                     <br></br>
 
         

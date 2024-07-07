@@ -28,9 +28,11 @@ export const Registro = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
+            alert.success("Registro exitoso")
             navigate("/home")
         }
         if (error) {
+            alert.error("Email ya registrado")
             dispatch(clearErrors)
         }
     }, [dispatch, isAuthenticated, error, alert, navigate])
@@ -82,8 +84,10 @@ export const Registro = () => {
                                     name="nombres"
                                     value={nombres} 
                                     onChange={onChange}
+                                    required
                                 />
                             </div>
+
                             <div class="col-6">
                                 <label for="Apellidos" class="form-label">Apellidos:</label>
                                 <input 
@@ -94,36 +98,42 @@ export const Registro = () => {
                                     name="apellidos" 
                                     value={apellidos} 
                                     onChange={onChange} 
+                                    required
                                 />
                             </div>
+
                             <div class="col-6">
                                 <label for="Email" class="form-label">Email:</label>
                                 <input 
-                                    type="text" 
+                                    type="email" 
                                     class="form-control" 
                                     id="Email" 
                                     placeholder="Ingrese su Email" 
                                     name="email" 
                                     value={email} 
                                     onChange={onChange} 
+                                    required
                                 />
                             </div>
+
                             <div class="col-6">
                                 <label for="Contraseña" class="form-label">Contraseña:</label>
                                 <input 
                                     type="password" 
+                                    minLength="8"
                                     class="form-control" 
                                     id="Contraseña" 
                                     placeholder="Ingrese su Contraseña" 
                                     name="clave" 
                                     value={clave} 
                                     onChange={onChange} 
+                                    required
                                 />
                             </div>
 
                             <label for="inputUbicacion" class="form-label inputUbicacion">Direccion:</label>
                             <div class="col-4">
-
+                            
                             <input 
                                 type="text" 
                                 class="form-control" 
@@ -132,6 +142,7 @@ export const Registro = () => {
                                 name="departamento" 
                                 value={departamento} 
                                 onChange={onChange} 
+                                required
                             />
                             </div>
                             
@@ -145,6 +156,7 @@ export const Registro = () => {
                                 name="ciudad" 
                                 value={ciudad} 
                                 onChange={onChange}
+                                required
                             />
                             </div>
 
@@ -160,21 +172,41 @@ export const Registro = () => {
                                     name="direccion" 
                                     value={direccion} 
                                     onChange={onChange}
+                                    required
                                 />
                             </div>
 
 
                             <div class="col-md-4">
-                            <label for="Contacto" class="form-label">Ingrese rol: agricultor o comprador</label>
+                            
+                            <label class="form-label">Seleccione su rol: </label>
+                                <div>
                                 <input 
-                                    type="text" 
-                                    class="form-control" 
-                                    id="rol" 
-                                    placeholder="Ingrese rol: agricultor o comprador" 
+                                    type='radio'
+                                    id="rolAgricultor" 
                                     name="rol"
-                                    value={rol} 
+                                    value="agricultor"
                                     onChange={onChange}
+                                    required
                                 />
+                                <label for="rolAgricultor">Agricultor</label>
+                                </div>
+                                <div>
+                                <input 
+                                    type='radio'
+                                    
+                                    id="rolComprador" 
+                                    name="rol"
+                                    value="comprador"
+                                    onChange={onChange}
+                                    required
+                                    
+                                />
+                                <label for="rolComprador">Comprador</label>
+                                </div>
+                              
+
+
                             </div>
 
 
@@ -183,12 +215,13 @@ export const Registro = () => {
                             <div class="col-md-4">
                                 <label for="Contacto" class="form-label">Numero de Contacto:</label>
                                 <input 
-                                    type="text" 
+                                    type="tel" 
                                     class="form-control" 
                                     id="Contacto" 
                                     name="telefono" 
                                     value={telefono} 
                                     onChange={onChange}
+                                    required
                                 />
                             </div>
 
