@@ -1,6 +1,9 @@
 //librería que me permite realizar las peticiones http (CRUD)a mi api rest (Me permite conectar con el backend)
 import axios from "axios"
 
+//Api URl
+const apiUrl = process.env.REACT_APP_API_URL;
+
 //Import todas las constantes las cuales me permiten definer los type de las acciones
 import {
     LOGIN_REQUEST,
@@ -51,7 +54,7 @@ export const login = (email, password) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         }
-        const {data} = await axios.post('/api/login', {email, password}, config) //Petición
+        const {data} = await axios.post(`${apiUrl}/api/login`, {email, password}, config) //Petición
 
         dispatch({
             type:LOGIN_SUCCESS,
@@ -76,7 +79,7 @@ export const register = (userData) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         }
-        const {data} = await axios.post('/api/crearUsuario', userData, config)
+        const {data} = await axios.post(`${apiUrl}/api/crearUsuario`, userData, config)
 
         dispatch({
             type: REGISTER_USER_SUCCESS,
@@ -95,7 +98,7 @@ export const register = (userData) => async (dispatch) => {
 export const loadUser=()=> async(dispatch) =>{
     try{
         dispatch({type: LOAD_USER_REQUEST})
-        const {data} = await axios.get("/api/usuario")
+        const {data} = await axios.get(`${apiUrl}/api/usuario`)
         dispatch({
             type: LOAD_USER_SUCCESS,
             payload: data
@@ -119,7 +122,7 @@ export const updateProfile = (userData, id) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         }
-        const {data} = await axios.patch(`/api/usuario/${id}`, userData, config)
+        const {data} = await axios.patch(`${apiUrl}/api/usuario/${id}`, userData, config)
 
         dispatch({
             type: UPDATE_PROFILE_SUCCESS,
@@ -137,7 +140,7 @@ export const updateProfile = (userData, id) => async (dispatch) => {
 //cerrar sesión
 export const logout = () => async (dispatch)=>{
     try{
-        await axios.get("/api/logout")
+        await axios.get(`${apiUrl}/api/logout`)
         dispatch({
             type: LOGOUT_SUCCESS,
         })
