@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://agroconexion-backend.onrender.com"
+  "proxy": "http://agroconexion-backend.onrender.com"
 }
