@@ -3,6 +3,9 @@ import {NEW_PUBLICACION_REQUEST, NEW_PUBLICACION_SUCCESS, NEW_PUBLICACION_FAIL, 
 
 import axios from 'axios'
 
+//Api URl
+const apiUrl = process.env.REACT_APP_API_URL;
+
 
 //crear nuevas publicaciones
 export const newPublicacion = (newPost) => async (dispatch)=>{
@@ -15,7 +18,7 @@ export const newPublicacion = (newPost) => async (dispatch)=>{
             }
         }
 
-        const {data} = await axios.post('/api/crearPublicacion', newPost, config)
+        const {data} = await axios.post(`${apiUrl}/api/crearPublicacion`, newPost, config)
 
         dispatch({
             type: NEW_PUBLICACION_SUCCESS,
@@ -37,7 +40,7 @@ export const getPublicaciones = () => async (dispatch)=>{
         dispatch({type: GET_PUBLICACIONES_REQUEST})
 
 
-        const {data} = await axios.get('/api/publicaciones')
+        const {data} = await axios.get(`${apiUrl}/api/publicaciones`)
 
         dispatch({
             type: GET_PUBLICACIONES_SUCCESS,
